@@ -4,10 +4,14 @@ import sqlite3
 
 PROJECT_ROOT = Path(__file__).resolve().parents[1]
 DB_PATH = PROJECT_ROOT / "data" / "db" / "analytics.db"
+ALLOWED_CITIES = {"Mumbai", "Delhi", "Bengaluru", "Pune"}
 
 
 def city_kpi(city: str) -> dict[str, float | int | str]:
     """Return customer KPIs for exactly one city."""
+    if city not in ALLOWED_CITIES:
+        raise ValueError(f"Unknown city: {city}")
+
     query = """
         SELECT
             city,
@@ -43,4 +47,7 @@ def city_kpi(city: str) -> dict[str, float | int | str]:
 
 if __name__ == "__main__":
     print(city_kpi("Mumbai"))
-    print(city_kpi("Mumbai' OR 1=1 --"))
+    try:
+        print(city_kpi("Mumbai' OR 1=1 --"))
+    except ValueError as error:
+        print(error)
