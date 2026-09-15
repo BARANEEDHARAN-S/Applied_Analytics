@@ -1,0 +1,11 @@
+customer_id,city,monthly_spend,churned
+1001,Mumbai,4500.00,0
+1002,Mumbai,3200.50,1
+1003,Delhi,5100.75,0
+1004,Delhi,2800.00,1
+1005,Bengaluru,6200.25,0
+1006,Bengaluru,3900.00,0
+1007,Pune,2100.50,1
+1008,Pune,4700.00,0
+1009,Mumbai,5600.00,0
+1010,Delhi,3500.25,0
